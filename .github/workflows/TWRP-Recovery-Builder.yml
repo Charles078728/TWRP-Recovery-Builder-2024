@@ -173,7 +173,7 @@ jobs:
     - name: Check if Recovery Exist
       run: |
         cd workspace
-        elif [ -f out/target/product/${{ github.event.inputs.DEVICE_NAME }}/boot.img ]; then
+        if [ -f out/target/product/${{ github.event.inputs.DEVICE_NAME }}/boot.img ]; then
             echo "RECOVERY_TYPE=boot" >> $GITHUB_ENV
             echo "boot.img file found!"
             echo "MD5_IMG=$(md5sum out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img | cut -d ' ' -f 1)" >> $GITHUB_ENV
